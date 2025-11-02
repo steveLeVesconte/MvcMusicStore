@@ -89,10 +89,25 @@ namespace MvcMusicStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(album).State = EntityState.Modified;
+                // Load the existing entity from database
+                var existingAlbum = db.Albums.Find(album.AlbumId);
+
+                if (existingAlbum == null)
+                {
+                    return HttpNotFound();
+                }
+
+                // Update only the properties you want to change
+                existingAlbum.GenreId = album.GenreId;
+                existingAlbum.ArtistId = album.ArtistId;
+                existingAlbum.Title = album.Title;
+                existingAlbum.Price = album.Price;
+                existingAlbum.AlbumArtUrl = album.AlbumArtUrl;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.ArtistId = new SelectList(db.Artists, "ArtistId", "Name", album.ArtistId);
             ViewBag.GenreId = new SelectList(db.Genres, "GenreId", "Name", album.GenreId);
             return View(album);

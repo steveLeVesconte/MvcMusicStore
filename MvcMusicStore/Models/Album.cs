@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MvcMusicStore.Models
 {
+  //  [Bind(Exclude = "AlbumId")]
     public class Album
     {
         [ScaffoldColumn(false)]
@@ -18,7 +20,8 @@ namespace MvcMusicStore.Models
         [Required(ErrorMessage = "An Album Title is required")]
         [StringLength(160)]
         public string Title { get; set; }
-        [Range(0.01, 100.00, ErrorMessage = "Price must be between 0.01 and 100.00")]
+        [Range(0.01, 100.00,
+            ErrorMessage = "Price must be between 0.01 and 100.00")]
         public decimal Price { get; set; }
         [DisplayName("Album Art URL")]
         [StringLength(1024)]
