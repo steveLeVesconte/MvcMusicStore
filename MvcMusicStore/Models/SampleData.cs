@@ -10,7 +10,7 @@ namespace MvcMusicStore.Models
     {
         protected override void Seed(MusicStoreEntities context)
         {
-            const string imgUrl = "~/Images/placeholder.png";
+            const string imgUrl = "/Content/Images/placeholder.gif";
 
             var genres = AddGenres(context);
             var artists = AddArtists(context);

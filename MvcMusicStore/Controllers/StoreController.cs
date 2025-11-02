@@ -12,32 +12,23 @@ namespace MvcMusicStore.Controllers
         MusicStoreEntities storeDB = new MusicStoreEntities();
         public ActionResult Index()
         {
-
             var genres = storeDB.Genres.ToList();
             return View(genres);
-
-
-    //        var genres = new List<Genre>
-    //{
-    //    new Genre { Name = "Disco"},
-    //    new Genre { Name = "Jazz"},
-    //    new Genre { Name = "Rock"}
-    //};
-    //        return View(genres);
         }
-
-
-        public string Browse(string genre)
+        public ActionResult Browse(string genre)
         {
-            string message = HttpUtility.HtmlEncode("Store.Browse, Genre = "
-+ genre);
-            return message;
+            // Retrieve Genre and its Associated Albums from database
+            var genreModel = storeDB.Genres.Include("Albums")
+                .Single(g => g.Name == genre);
+
+            return View(genreModel);
         }
 
         // GET: /Store/Details/5
         public ActionResult Details(int id)
         {
-            var album = new Album { Title = "Album " + id };
+            var album = storeDB.Albums.Find(id);
+
             return View(album);
         }
     }
