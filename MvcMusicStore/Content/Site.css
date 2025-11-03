@@ -136,14 +136,21 @@ ul#navlist li
 	display: inline;
 }
 
-ul#navlist li a
-{
-	border-left: 1px dotted #8A8575;
-	padding: 10px;
-	margin-top: 10px;
-	color: #8A8575;
-	text-decoration: none;
-	float: left;
+ul#navlist li a,
+ul#navlist li .nav-username {
+    border-left: 1px dotted #8A8575;
+    padding: 10px;
+    margin-top: 10px;
+    color: #8A8575;
+    text-decoration: none;
+    float: left;
+    display: inline-block;
+}
+
+ul#navlist li .nav-username {
+	cursor: default;
+	color: var(--bs-body-color);
+	font-size: 16px;
 }
 
 ul#navlist li:first-child a

@@ -6,9 +6,18 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
         @Html.AntiForgeryToken()
-        <ul id="account-nav">
+        <ul id="navlist">
+            <li class="first">
+                <a href="/" id="current">Home</a>
+            </li>
             <li>
-                Hello, @User.Identity.GetUserName()!
+                <a href="/Store/">Store</a>
+            </li>
+            <li>
+                <span class="nav-username">
+                    Hello, @User.Identity.GetUserName()!
+                </span>
+
             </li>
             <li>
                 @Html.ActionLink("Change Password", "ChangePassword", "Account")
@@ -21,7 +30,13 @@
 }
 else
 {
-    <ul id="account-nav">
+    <ul id="navlist">
+        <li class="first">
+            <a href="/" id="current">Home</a>
+        </li>
+        <li>
+            <a href="/Store/">Store</a>
+        </li>
         <li>@Html.ActionLink("Register", "Register", "Account")</li>
         <li>@Html.ActionLink("Log in", "Login", "Account")</li>
     </ul>
