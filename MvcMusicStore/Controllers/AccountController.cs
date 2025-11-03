@@ -61,6 +61,7 @@ namespace MvcMusicStore.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    MigrateShoppingCart(model.Email);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.Failure:
                 default:
@@ -96,6 +97,7 @@ namespace MvcMusicStore.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    MigrateShoppingCart(model.Email);
                     return RedirectToAction("Index", "Home");
                 }
 
@@ -145,6 +147,15 @@ namespace MvcMusicStore.Controllers
 
             AddErrors(result);
             return View(model);
+        }
+
+        private void MigrateShoppingCart(string UserName)
+        {
+            // Associate shopping cart items with logged-in user
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            cart.MigrateCart(UserName);
+            Session[ShoppingCart.CartSessionKey] = UserName;
         }
 
         protected override void Dispose(bool disposing)
