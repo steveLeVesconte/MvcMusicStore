@@ -21,6 +21,15 @@
             </li>
         </ul>
     </div>
+    <ul id="navlist">
+        <li class="first">
+            <a href="/" id="current">Home</a>
+        </li>
+        <li>
+            <a href="/Store/">Store</a>
+        </li>
+        @Html.Partial("_LoginPartial")
+    </ul>
     @RenderBody()
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
