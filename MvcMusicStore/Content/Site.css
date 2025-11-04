@@ -1,4 +1,4 @@
-﻿*
+*
 {
 	margin: 0px;
 	padding: 0px;
@@ -10,7 +10,7 @@ body
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	background-color: #FBF9EF;
-	padding: 0px 6%;
+	padding: 15px 6% 0px 6%;
 }
 
 #container
@@ -332,3 +332,155 @@ tr:hover
 {
 	background-color: #fff;
 }
+
+
+/* Admin list title styling */
+#main table tr > td:nth-child(5) {
+	padding-right: 5px;
+}
+
+/* Spacing for back/cancel links after forms */
+.back-link {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+/* ===================================================================
+   BOOTSTRAP 5 COMPATIBILITY & SPACING FIXES
+   Added to resolve spacing issues from Bootstrap 5 upgrade
+   =================================================================== */
+
+/* Form group spacing (replaces Bootstrap 3's forms.less) */
+.form-group
+{
+	margin-bottom: 15px;
+}
+
+/* Form label styling (replaces Bootstrap 3's control-label) */
+.control-label
+{
+	padding-top: 7px;
+	margin-bottom: 0;
+	text-align: left;
+}
+
+/* Heading spacing (replaces type.less) */
+h1, .h1
+{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+h2, .h2, h3, .h3
+{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+/* Override Bootstrap 5 button colors to match site theme */
+.btn-primary
+{
+	--bs-btn-bg: #5e5b54;
+	--bs-btn-border-color: #5e5b54;
+	--bs-btn-hover-bg: #4a4843;
+	--bs-btn-hover-border-color: #3d3a36;
+	--bs-btn-active-bg: #3d3a36;
+	--bs-btn-active-border-color: #302e2b;
+}
+
+/* Fallback for browsers without CSS variable support */
+.btn-primary:hover
+{
+	background-color: #4a4843 !important;
+	border-color: #3d3a36 !important;
+}
+
+.btn-primary:active,
+.btn-primary.active
+{
+	background-color: #3d3a36 !important;
+	border-color: #302e2b !important;
+}
+
+/* Album list title styling */
+ul#album-list li a h5
+{
+	color: #9b9993;
+	text-decoration: underline;
+	font-size: 13px;
+	margin: 5px 0 0 0;
+}
+
+/* ===================================================================
+   END BOOTSTRAP 5 COMPATIBILITY FIXES
+   =================================================================== */
+
+/* ===================================================================
+   EDITOR TEMPLATE STYLING (for @Html.EditorForModel() forms)
+   Make editor-field inputs match Bootstrap form-control styling
+   =================================================================== */
+
+/* Style inputs in editor templates to match Bootstrap form-control */
+.editor-field input[type="text"],
+.editor-field input[type="email"],
+.editor-field input[type="password"],
+.editor-field input[type="number"],
+.editor-field input[type="tel"],
+.editor-field select,
+.editor-field textarea {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+/* Focus state for editor inputs */
+.editor-field input[type="text"]:focus,
+.editor-field input[type="email"]:focus,
+.editor-field input[type="password"]:focus,
+.editor-field input[type="number"]:focus,
+.editor-field input[type="tel"]:focus,
+.editor-field select:focus,
+.editor-field textarea:focus {
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/* Validation error styling for editor fields */
+.editor-field .input-validation-error {
+    border-color: #a94442;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.editor-field .input-validation-error:focus {
+    border-color: #843534;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+
+/* Editor label styling */
+.editor-label {
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.editor-label label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+/* ===================================================================
+   END EDITOR TEMPLATE STYLING
+   =================================================================== */

@@ -13,7 +13,19 @@
         </h1>
         @Html.Partial("_NavPartial")
     </div>
-    @RenderBody()
+    <div class="row">
+        <div class="col-md-2">
+            @{Html.RenderAction("GenreMenu", "Store");}
+        </div>
+        <div class="col-md-10">
+            <div id="main">
+                @RenderBody()
+            </div>
+            <div id="footer">
+                built with <a href="http://asp.net/mvc">ASP.NET MVC 5</a>
+            </div>
+        </div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
