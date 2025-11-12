@@ -116,4 +116,7 @@ secrets.json
 
 # Optional: if using Docker
 docker-compose*
+
+# Roslyn compiler tools - not needed in source control, restored by NuGet
+bin/roslyn/
 
